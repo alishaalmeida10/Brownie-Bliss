@@ -69,6 +69,11 @@ const orderItemSchema = new mongoose.Schema({
   qty: { type: Number, required: true },
   emoji: { type: String, default: '🍫' },
   category: { type: String },
+  customizations: {
+    dietary: { type: String, enum: ['egg', 'eggless'], default: 'egg' },
+    toppings: [{ name: String, price: Number }],
+    message: { type: String, default: '' }
+  }
 }, { _id: false });
 
 const orderSchema = new mongoose.Schema({
